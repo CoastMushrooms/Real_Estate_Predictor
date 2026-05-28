@@ -122,3 +122,7 @@ Returns all past predictions from the database, newest first.
 - **Training data:** 200 synthetically generated property listings
 - **Serialization:** `pickle`
 ---
+
+## Railway Link
+
+** Link: realestatepredictor-production.up.railway.app
