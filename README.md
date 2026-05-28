@@ -125,4 +125,4 @@ Returns all past predictions from the database, newest first.
 
 ## Railway Link
 
-**Link: realestatepredictor-production.up.railway.app
+- **Link: realestatepredictor-production.up.railway.app
