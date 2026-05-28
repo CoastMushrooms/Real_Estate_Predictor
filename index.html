@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate ML Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; }
+        h2 { color: #333; text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: 95%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #result { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 4px; display: none; font-size: 18px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <h2> House Price Predictor Engine</h2>
+    
+    <div class="form-group">
+        <label for="sqft">Square Footage (sqft):</label>
+        <input type="number" id="sqft" placeholder="e.g. 1500" value="1200">
+    </div>
+    
+    <div class="form-group">
+        <label for="beds">Bedrooms:</label>
+        <input type="number" id="beds" placeholder="e.g. 3" value="3">
+    </div>
+
+    <button onclick="makePrediction()">Calculate Estimated Value</button>
+
+    <div id="result"></div>
+
+    <script>
+        async function makePrediction() {
+            const sqft = document.getElementById('sqft').value;
+            const beds = document.getElementById('beds').value;
+            const resultDiv = document.getElementById('result');
+
+            const response = await fetch(`/predict?sqft=${sqft}&beds=${beds}`);
+            const data = await response.json();
+
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<strong>Estimated Price:</strong> $${data.estimated_price.toLocaleString()}`;
+        }
+    </script>
+</body>
+</html>
