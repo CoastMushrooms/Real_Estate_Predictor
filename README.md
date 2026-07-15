@@ -35,7 +35,7 @@ real_estate-ml/
 ├── scraper.py           # Scrapes mock listings → data.csv; also scrapes live books
 ├── real_scraper.py      # Standalone live book scraper (books.toscrape.com)
 ├── train_model.py       # Trains model on data.csv → model.pkl
-├── main.py              # FastAPI server — loads model, serves predictions, auto-opens browser
+├── main.py              # FastAPI server loads model, serves predictions, auto-opens browser
 ├── index.html           # Frontend UI
 ├── data.csv             # Scraped training data (generated, do not edit manually)
 ├── model.pkl            # Serialized trained model (generated)
